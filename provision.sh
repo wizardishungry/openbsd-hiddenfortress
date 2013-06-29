@@ -1,8 +1,13 @@
 #!/bin/sh
 . /root/.profile
 
-# bring up bridged interface
-cp /etc/hostname.em{0,1}
+HOSTNAME=$1
+
+# bring up bridged interface and set hostname
+echo dhcp > /etc/hostname.em1
+echo "send host-name \"$HOSTNAME\";" >> /etc/dhclient.conf
+echo $HOSTNAME
+hostname -s $HOSTNAME > /etc/myname
 sh /etc/netstart em1
 
 #configure mail server

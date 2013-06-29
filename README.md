@@ -1,4 +1,7 @@
 openbsd-mifune
-==============
+====================
+*A Hidden Fortress!*
 
-A Hidden Fortress!
+- `vagrant up`
+- *ignore warnings about missing interface*
+- vagrant provision`

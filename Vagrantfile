@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "openbsd53_amd64"
+  config.vm.hostname = "mifune"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -47,5 +48,9 @@ Vagrant.configure("2") do |config|
     #vb.customize ["modifyvm", :id, "--memory", "1024"]
    end
 
-  config.vm.provision :shell, :path => "provision.sh"
+  config.vm.provision :shell do |s|
+		s.path = "provision.sh"
+    s.args = "'#{config.vm.hostname}'"
+  end
+
 end
