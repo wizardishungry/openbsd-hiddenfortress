@@ -2,12 +2,27 @@
 . /root/.profile
 
 HOSTNAME=$1
+DOMAIN=$2
+OLDHOSTNAME=`hostname`
 
 # bring up bridged interface and set hostname
 echo dhcp > /etc/hostname.em1
 echo $HOSTNAME
 hostname -s $HOSTNAME > /etc/myname
 sh /etc/netstart em1
+
+#configure smtpd
+
+echo " 
+listen on egress
+
+table aliases db:/etc/mail/aliases.db
+
+accept from any for domain \"$DOMAIN\" \
+		 alias <aliases> deliver to mbox
+accept for local alias <aliases> deliver to mbox
+accept for any relay
+">  /etc/mail/smtpd.conf 
 
 #configure mail server
 touch /etc/mail/nospamd
@@ -34,3 +49,4 @@ pass out log on $egress proto tcp to any port smtp
 ' >> /etc/pf.conf
 pfctl -f /etc/pf.conf
 echo "sysctl net.inet.ip.forwarding=1" | tee -a /etc/sysctl.conf | sh
+
