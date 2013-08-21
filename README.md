@@ -4,7 +4,9 @@ openbsd-hiddenfortress
 Setup a minimal [OpenBSD](http://openbsd.org/) virtual machine with [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
 Intended as a quick way to provision a secure Tor environment for improved privacy and security.
 
-Browsers Available & Verified
+
+
+Browsers Available + Verified
 -----------------------------
 - [Curl](http://curl.haxx.se/)
 - [Lynx](http://lynx.browser.org/)
@@ -34,8 +36,11 @@ Todo
 - [ ] X11 installation
   - [ ] Chromium
   - [ ] Firefox
-- [ ] En3crypt root file system with session key?
+  - [ ] HTTPS Everywhere extension
+- [ ] Encrypt root file system with Softraid crypto 
 - [ ] Build VM using [Packer](http://packer.io/)
+- [ ] pf.conf rules so that the vagrant user can't send traffic on any interface but lo
+- [ ] Embed Matrix youtube http://www.youtube.com/watch?v=-HTy7gT7RnA
 <pre>
                                      /)
                                     //
