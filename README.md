@@ -1,8 +1,13 @@
-openbsd-mifune
+openbsd-hiddenfortress
 ====================
-*A Hidden Fortress!*
 
 Vagrantfile to setup a minimal OpenBSD install with tor+polipo+web_browsers.
+
+Prerequisites
+-------------
+- Working [Vagrant](http://www.vagrantup.com/) install
+- Ssh client
+- X11 install _(graphical browsers coming soon!)_
 
 Instructions
 ------------
