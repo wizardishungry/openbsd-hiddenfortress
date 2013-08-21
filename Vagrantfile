@@ -19,7 +19,6 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network :forwarded_port, guest: 80, host: 8080
-   config.vm.network :forwarded_port, guest: 25, host: 2525
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -28,7 +27,6 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-   config.vm.network :public_network, :mac => "080027000000"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
