@@ -22,6 +22,14 @@ Instructions
         Congratulations. Your browser is configured to use Tor.
         Please refer to the Tor website for further information about using Tor
         safely. You are now free to browse the Internet anonymously.
+
+Todo
+----
+- [ ] X11 installation
+  - [ ] Chromium
+  - [ ] Firefox
+- [ ] En3crypt root file system with session key?
+- [ ] Build VM using [Packer](http://packer.io/)
 <pre>
                                      /)
                                     //
@@ -48,10 +56,3 @@ Instructions
           |,/          \,/  b'ger
 </pre>
 
-
-Todo
-----
-- [ ] X11 installation
- - [ ] Chromium
- - [ ] Firefox
-- [ ] Encrypt root file system with session key?
