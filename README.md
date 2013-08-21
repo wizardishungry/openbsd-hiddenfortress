@@ -4,6 +4,12 @@ openbsd-hiddenfortress
 Setup a minimal [OpenBSD](http://openbsd.org/) virtual machine with [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
 Intended as a quick way to provision a secure Tor environment for improved privacy and security.
 
+Browsers Available & Verified
+-----------------------------
+- [Curl](http://curl.haxx.se/)
+- [Lynx](http://lynx.browser.org/)
+- [W3m](http://w3m.sourceforge.net/)
+
 Prerequisites
 -------------
 - Working [Vagrant](http://www.vagrantup.com/) install
