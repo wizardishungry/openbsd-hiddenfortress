@@ -31,16 +31,6 @@ Instructions
         Please refer to the Tor website for further information about using Tor
         safely. You are now free to browse the Internet anonymously.
 
-Todo
-----
-- [ ] X11 installation
-  - [ ] Chromium
-  - [ ] Firefox
-  - [ ] HTTPS Everywhere extension
-- [ ] Encrypt root file system with Softraid crypto 
-- [ ] Build VM using [Packer](http://packer.io/)
-- [ ] pf.conf rules so that the vagrant user can't send traffic on any interface but lo
-- [ ] Embed Matrix youtube http://www.youtube.com/watch?v=-HTy7gT7RnA
 <pre>
                                      /)
                                     //
