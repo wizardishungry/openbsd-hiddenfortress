@@ -1,7 +1,7 @@
 openbsd-hiddenfortress
 ====================
 
-Vagrantfile to setup a minimal OpenBSD install with tor+polipo+web_browsers.
+Setup a minimal OpenBSD install with [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
 
 Prerequisites
 -------------
