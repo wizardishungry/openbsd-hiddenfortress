@@ -1,13 +1,15 @@
 openbsd-hiddenfortress
 ====================
 
-Setup a minimal OpenBSD install with [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
+Setup a minimal [OpenBSD](http://openbsd.org/) virtual machine with [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
+Intended as a quick way to provision a secure Tor environment for improved privacy and security.
 
 Prerequisites
 -------------
 - Working [Vagrant](http://www.vagrantup.com/) install
+- [VirtualBox](https://www.virtualbox.org/)
 - Ssh client
-- X11 install _(graphical browsers coming soon!)_
+- X11 Install _(Graphical browsers coming soon!)_
 
 Instructions
 ------------
@@ -45,3 +47,11 @@ Instructions
           /+|          |+\
           |,/          \,/  b'ger
 </pre>
+
+
+Todo
+----
+- [ ] X11 installation
+ - [ ] Chromium
+ - [ ] Firefox
+- [ ] Encrypt root file system with session key?
