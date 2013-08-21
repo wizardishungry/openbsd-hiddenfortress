@@ -10,7 +10,7 @@ pkg_add w3m-0.5.3p1
 #pkg_add chromium
 
 #configure polipo
-echo "socksParentProxy = "localhost:9050"
+echo "socksParentProxy = \"localhost:9050\"
 socksProxyType = socks5" >> /etc/polipo/config
 
 echo "/etc/rc.d/tor start" | tee -a /etc/rc.local | sh
@@ -24,7 +24,11 @@ echo "http_proxy $proxy
 https_proxy $proxy
 ftp_proxy $proxy
 use_proxy 1" > ~vagrant/.w3m/config
-echo "export HTTP_PROXY=$proxy" > ~vagrant/.profile
+echo "
+export http_proxy=$proxy
+export https_proxy=$proxy
+export ftp_proxy=$proxy
+" > ~vagrant/.profile
 chown -R vagrant:vagrant ~vagrant
 
 # disable sudo

@@ -8,4 +8,6 @@ Instructions
 ------------
 - `vagrant up`
 - *ignore warnings about missing interface*
-- vagrant provision`
+- `vagrant provision`
+- `vagrant ssh`
+- ` lynx -dump -nolist http://check.torproject.org/`
