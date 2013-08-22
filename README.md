@@ -6,6 +6,7 @@ Intended as a quick way to provision a secure Tor environment for improved priva
 
 Browsers Available + Verified
 -----------------------------
+**X11 browsers are not going to work unless you monkey with the Vagrantfile right now!**
 - [Chrome / Chromium](http://www.chromium.org/Home) -- launch with `chrome --proxy-server="127.0.0.1:8123" http://check.torproject.org/`
 - [Curl](http://curl.haxx.se/)
 - Firefox -- manually input proxy settings
