@@ -22,7 +22,7 @@ Prerequisites
 Instructions
 ------------
 - `vagrant up`
-- *ignore warnings about missing interface*
+- *ignore warnings about missing interface or change_host_name capability*
 - `vagrant provision`
 - `vagrant ssh -- -X`
 - `lynx -dump -nolist http://check.torproject.org/`
