@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# just a hack while I don't have an openbsd with X11
+iso = "/Users/jon/Projects/openbsd53_amd64.build/iso/openbsd53_64.iso"
+
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
@@ -39,11 +42,13 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
    config.vm.provider :virtualbox do |vb|
-		# Don't boot with headless mode
-    #vb.gui = true
-
-    # Use VBoxManage to customize the VM. For example to change memory:
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
+    if File.exists? iso
+      # Use VBoxManage to customize the VM. For example to change memory:
+      vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["storageattach", :id, "--storagectl", "IDE Controller", "--port", "1", "--device", "0", "--type", "dvddrive", "--medium", iso]
+      # Don't boot with headless mode
+      vb.gui = true
+    end
    end
 
   config.vm.provision :shell do |s|

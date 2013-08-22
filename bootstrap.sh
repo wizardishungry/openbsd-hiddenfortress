@@ -3,12 +3,25 @@
 . /etc/rc.conf
 
 HOSTNAME=$1
-hostname -s $HOSTNAME > /etc/myname
-#export PKG_PATH=ftp://your.ftp.mirror/pub/OpenBSD/5.3/packages/`machine -a`/
+echo Setting hostname: $HOSTNAME
+hostname -s $HOSTNAME
+echo $HOSTNAME > /etc/myname
+
+# Temporary hack for installing X11 while I wait for new packer img
+echo Attempting to mount OpenBSD iso\; this is a hack
+mkdir /mnt/cd
+mount /dev/cd1a /mnt/cd/
+echo -n "Untar X11... "
+for f in  /mnt/cd/5.3/amd64/x*.tgz ; do tar xzf $f -C /; done
+ldconfig /usr/local/lib /usr/X11R6/lib $shlib_dirs
+echo done!
+
+echo "Installing packages"
+export PKG_PATH=http://ftp3.usa.openbsd.org/pub/OpenBSD/5.3/packages/`machine -a`/
 pkg_add tor
 pkg_add polipo
 pkg_add w3m-0.5.3p1
-#pkg_add chromium
+pkg_add chromium-24.0.1312.68
 
 echo "Configuring sshd"
 echo X11Forwarding yes >> /etc/ssh/sshd_config

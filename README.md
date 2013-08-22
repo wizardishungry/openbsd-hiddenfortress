@@ -8,6 +8,7 @@ Intended as a quick way to provision a secure Tor environment for improved priva
 
 Browsers Available + Verified
 -----------------------------
+- [Chrome / Chromium](http://www.chromium.org/Home)
 - [Curl](http://curl.haxx.se/)
 - [Lynx](http://lynx.browser.org/)
 - [W3m](http://w3m.sourceforge.net/)
@@ -24,7 +25,7 @@ Instructions
 - `vagrant up`
 - *ignore warnings about missing interface*
 - `vagrant provision`
-- `vagrant ssh`
+- `vagrant ssh -- -X`
 - `lynx -dump -nolist http://check.torproject.org/`
 
         Congratulations. Your browser is configured to use Tor.
