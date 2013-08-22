@@ -22,6 +22,7 @@ pkg_add tor
 pkg_add polipo
 pkg_add w3m-0.5.3p1
 pkg_add chromium-24.0.1312.68
+pkg_add firefox
 
 echo "Configuring sshd"
 echo X11Forwarding yes >> /etc/ssh/sshd_config
@@ -45,6 +46,7 @@ export http_proxy=$proxy
 export https_proxy=$proxy
 export all_proxy=$proxy
 export ftp_proxy=$proxy
+export PKG_PATH=$PKG_PATH
 " > ~vagrant/.profile
 chown -R vagrant:vagrant ~vagrant
 

@@ -4,12 +4,11 @@ openbsd-hiddenfortress
 Setup a minimal [OpenBSD](http://openbsd.org/) virtual machine with [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
 Intended as a quick way to provision a secure Tor environment for improved privacy and security.
 
-
-
 Browsers Available + Verified
 -----------------------------
 - [Chrome / Chromium](http://www.chromium.org/Home) -- launch with `chrome --proxy-server="127.0.0.1:8123" http://check.torproject.org/`
 - [Curl](http://curl.haxx.se/)
+- Firefox -- manually input proxy settings
 - [Lynx](http://lynx.browser.org/)
 - [W3m](http://w3m.sourceforge.net/)
 
