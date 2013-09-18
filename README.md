@@ -15,7 +15,7 @@ Browsers Available + Verified
 
 Prerequisites
 -------------
-- Working [Vagrant](http://www.vagrantup.com/) install
+- Working [Vagrant](http://www.vagrantup.com/) install (*> 1.3.X*)
 - [VirtualBox](https://www.virtualbox.org/)
 - Ssh client
 - X11 Install _(Graphical browsers coming soon!)_
