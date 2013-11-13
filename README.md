@@ -1,4 +1,3 @@
-
 openbsd-hiddenfortress SOCKS!!!!!
 ====================
 
@@ -25,7 +24,7 @@ Instructions
 - `vagrant up`
 - *ignore warnings about missing interface or change_host_name capability*
 - `vagrant provision`
-- `vagrant ssh -- -X`
+- `vagrant ssh -- -XA`
 - `ssh -fND 9050 user@host.example.com`
 - `lynx -dump -nolist http://www.cnn.com/`
 </pre>
