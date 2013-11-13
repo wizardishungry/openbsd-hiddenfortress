@@ -18,7 +18,6 @@ echo done!
 
 echo "Installing packages"
 export PKG_PATH=http://ftp3.usa.openbsd.org/pub/OpenBSD/5.3/packages/`machine -a`/
-pkg_add tor
 pkg_add polipo
 pkg_add w3m-0.5.3p1
 pkg_add chromium-24.0.1312.68
@@ -52,12 +51,10 @@ chown -R vagrant:vagrant ~vagrant
 
 echo Setting up packet filter rule
 echo 'block out on ! lo0 proto { tcp, udp } user vagrant' >> /etc/pf.conf
+echo 'pass out on ! lo0 proto udp from any to any port 53' >> /etc/pf.conf
+echo 'pass out on ! lo0 proto tcp from any to any port 22' >> /etc/pf.conf
+
 pfctl -f /etc/pf.conf
 
 # disable sudo
 # mv /etc/sudoers{,.bak}
-
-echo Writing MOTD
-. ~vagrant/.profile
-lynx -width=1000 -dump -nolist http://check.torproject.org/ | sed 's/  */ /g' | egrep '[:alpha:]'| head -n 4 | tail -n 3 >> /etc/motd
-echo >> /etc/motd
