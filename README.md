@@ -1,9 +1,8 @@
 
-openbsd-hiddenfortress socks!!!!!
+openbsd-hiddenfortress SOCKS!!!!!
 ====================
 
-Setup a minimal [OpenBSD](http://openbsd.org/) virtual machine with [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
-Intended as a quick way to provision a secure Tor environment for improved privacy and security.
+Setup a minimal [OpenBSD](http://openbsd.org/) virtual machine with [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
 
 Browsers Available + Verified
 -----------------------------

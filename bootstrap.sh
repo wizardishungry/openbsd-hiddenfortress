@@ -27,10 +27,9 @@ echo "Configuring sshd"
 echo X11Forwarding yes >> /etc/ssh/sshd_config
 /etc/rc.d/sshd restart
 
-echo Configuring polipo and tor
+echo Configuring polipo
 echo "socksParentProxy = \"localhost:9050\"
 socksProxyType = socks5" >> /etc/polipo/config
-echo "/etc/rc.d/tor start" | tee -a /etc/rc.local | sh
 echo "/etc/rc.d/polipo start" | tee -a /etc/rc.local | sh
 
 echo "Setup user account"
