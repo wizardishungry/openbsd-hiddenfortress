@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # just a hack while I don't have an openbsd with X11
-iso = "/Users/jon/Projects/openbsd53_amd64.build/iso/openbsd53_64.iso"
+iso = Dir.getwd + "/openbsd53_64.iso"
 
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration

@@ -22,6 +22,7 @@ Prerequisites
 
 Instructions
 ------------
+- Download an OpenBSD iso if you want X11 and muck with the Vagrantfile
 - `vagrant up`
 - *ignore warnings about missing interface or change_host_name capability*
 - `vagrant provision`
@@ -57,4 +58,3 @@ Instructions
           /+|          |+\
           |,/          \,/  b'ger
 </pre>
-
