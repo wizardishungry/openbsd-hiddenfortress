@@ -33,6 +33,11 @@ Instructions
         Please refer to the Tor website for further information about using Tor
         safely. You are now free to browse the Internet anonymously.
 
+Additional Configuration Options
+----------------------------
+
+- You can add TOR [bridges](https://www.torproject.org/docs/bridges.html.en) by putting them in torrc.append
+
 <pre>
                                      /)
                                     //

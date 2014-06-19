@@ -19,3 +19,4 @@ doc/
 
 # Vagrant artifacts
 .vagrant
+torrc.append

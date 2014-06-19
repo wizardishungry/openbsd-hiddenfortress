@@ -1,4 +1,16 @@
 #!/bin/sh
+
+################################################################################
+#
+# User Options
+#
+################################################################################
+
+# TORRC_APPEND: put servers for bootstrapping tor here, etc.
+# TORRC_APPEND="bridge   187.151.51.71:443 26f6039b96e9a156520335327a8ec8dbcef5620f
+# bridge   74.78.122.175:443 f832e688f1e281696a71cb80bffbbf20bdfb4141
+# bridge   23.23.17.195:443 9284072d42950fe9b9c749491fcf6793940816ef"
+
 . /root/.profile
 . /etc/rc.conf
 
@@ -29,6 +41,7 @@ echo X11Forwarding yes >> /etc/ssh/sshd_config
 /etc/rc.d/sshd restart
 
 echo Configuring polipo and tor
+echo "$TORRC_APPEND" >> /etc/tor/torrc
 echo "socksParentProxy = \"localhost:9050\"
 socksProxyType = socks5" >> /etc/polipo/config
 echo "/etc/rc.d/tor start" | tee -a /etc/rc.local | sh
