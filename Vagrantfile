@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, name: "local" do |s|
     s.privileged = false
     s.inline = <<-SCRIPT
-      ~/.skel/bin/setup/openbsd.sh
+      ~/.skel/setup/openbsd.sh
       ~/.skel/bin/skeletor.sh
     SCRIPT
   end

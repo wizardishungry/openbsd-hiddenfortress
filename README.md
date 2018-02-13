@@ -1,15 +1,12 @@
 # openbsd-hiddenfortress
 
-Intended as a quick way to provision an OpenBSD 6.2 machine inside VirtualBox for a distraction-free desktop.
-Also includes a semi-jailed [Tor](https://www.torproject.org/) user.
+1. Sets up a minimal [OpenBSD](http://openbsd.org/) virtual machine with X11 and ssh access.
+2. Set the `vagrant` user to copy over dotfiles and install custom packages – see `local` provisioner block in `Vagrantfile`.
+4. Setup a delegate user (`tor`) for [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
 
-## What it does
-1. Setup a minimal [OpenBSD](http://openbsd.org/) virtual machine with X11 and ssh access.
-2. Set the `vagrant` user to copy over dotfiles.
-3. Setup a delegate user (`tor`) for [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
+⚠️ ***This is not intended as a replacement for the integrated security provided by the Tor Browser bundle!***
 
-- ***This is not intended as a replacement for the integrated security provided by the Tor Browser bundle!***
-- ***Virtualization software is bug ridden; this is not intended to have the same security as running OpenBSD on dedicated hardware.***
+⚠️ ***Virtualization software is bug ridden; this is not intended to have the same security as running OpenBSD on dedicated hardware.***
 
 ## Prerequisites
 - Working [Vagrant](http://www.vagrantup.com/) install
@@ -28,7 +25,7 @@ There should be a user added called `tor`. Connect by:
 ```bash
 SSH_USER=tor vagrant ssh
 ```
-There are packet filters that block any non-tor network activity from this user.
+There are [packet filter](https://www.openbsd.org/faq/pf/) rules that block any non-Tor network activity from this user.
 
 ### Browsers Available + Verified
 - [Chrome / Chromium](https://www.chromium.org/Home) -- launch with `chrome --proxy-server="127.0.0.1:8123" http://check.torproject.org/`
