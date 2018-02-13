@@ -1,6 +1,6 @@
 # openbsd-hiddenfortress
 
-Intended as a quick way to provision an OpenBSD 6.2 machine inside VirtualBox for a distraction free desktop.
+Intended as a quick way to provision an OpenBSD 6.2 machine inside VirtualBox for a distraction-free desktop.
 Also includes a semi-jailed [Tor](https://www.torproject.org/) user.
 
 ## What it does
@@ -8,8 +8,8 @@ Also includes a semi-jailed [Tor](https://www.torproject.org/) user.
 2. Set the `vagrant` user to copy over dotfiles.
 3. Setup a delegate user (`tor`) for [Tor](https://www.torproject.org/) + [polipo](http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/) + a few web browsers.
 
-***This is not intended as a replacement for the integrated security provided by the Tor Browser bundle!***
-***Virtualization software is bug ridden; this is not intended to have the same security as running OpenBSD on dedicated hardware.***
+- ***This is not intended as a replacement for the integrated security provided by the Tor Browser bundle!***
+- ***Virtualization software is bug ridden; this is not intended to have the same security as running OpenBSD on dedicated hardware.***
 
 ## Prerequisites
 - Working [Vagrant](http://www.vagrantup.com/) install
@@ -24,8 +24,11 @@ Also includes a semi-jailed [Tor](https://www.torproject.org/) user.
 - or login in the VirtualBox window
 
 ## Tor Operation
-There should be a user added called `tor` with the password `tor`.
-There are packet filters that block any network activity from this user.
+There should be a user added called `tor`. Connect by:
+```bash
+SSH_USER=tor vagrant ssh
+```
+There are packet filters that block any non-tor network activity from this user.
 
 ### Browsers Available + Verified
 - [Chrome / Chromium](https://www.chromium.org/Home) -- launch with `chrome --proxy-server="127.0.0.1:8123" http://check.torproject.org/`
@@ -43,9 +46,9 @@ There are packet filters that block any network activity from this user.
 ```
 
 ### Additional Configuration Options
-- You can add TOR [bridges](https://www.torproject.org/docs/bridges.html.en) by putting them in torrc.append
+- You can add TOR [bridges](https://www.torproject.org/docs/bridges.html.en) by putting them in `TORRC_APPEND`
 
-<pre>
+```
                                      /)
                                     //
                   __*_             //
@@ -69,4 +72,4 @@ There are packet filters that block any network activity from this user.
            '(          )'
           /+|          |+\
           |,/          \,/  b'ger
-</pre>
+```

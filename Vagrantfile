@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "#{hostname}-#{config.vm.box.match /[^\/]*$/}"
 
   config.vm.synced_folder "./data", "/vagrant_data", type: "rsync"
+  config.vm.synced_folder "#{ENV['HOME']}/.skel", "/home/vagrant/.skel", type: "rsync"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
@@ -31,10 +32,20 @@ Vagrant.configure("2") do |config|
 
   config.ssh.forward_agent = true
   config.ssh.extra_args = %W(-o AddKeysToAgent=yes)
+  config.ssh.username = ENV.fetch 'SSH_USER', "vagrant"
 
-  config.vm.provision :shell do |s|
+  config.vm.provision :shell, name: "hiddenfortress" do |s|
     s.path = "bootstrap.sh"
     s.args = "'#{config.vm.hostname}' '#{pkg_base}'"
+  end
+
+  # these are specific to my configuration
+  config.vm.provision :shell, name: "local" do |s|
+    s.privileged = false
+    s.inline = <<-SCRIPT
+      ~/.skel/bin/setup/openbsd.sh
+      ~/.skel/bin/skeletor.sh
+    SCRIPT
   end
 
   config.trigger.after :provision do
