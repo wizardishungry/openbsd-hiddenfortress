@@ -46,6 +46,7 @@ Vagrant.configure("2") do |config|
     s.inline = <<-SCRIPT
       ~/.skel/setup/openbsd.sh
       ~/.skel/bin/skeletor.sh
+      exit 0
     SCRIPT
   end
 
