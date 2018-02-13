@@ -53,8 +53,9 @@ rcctl restart $PKG_SCRIPTS sshd
 
 echo Adding tor user…
 useradd -m tor
-rm -rf ~tor/.ssh 2> /dev/null
-cp -r ~vagrant/.ssh ~tor/.ssh
+mkdir ~tor/.ssh
+cp ~vagrant/.ssh/authorized_keys ~tor/.ssh/
+echo "ProxyCommand socat STDIO SOCKS4A:localhost:%h:%p,socksport=9050" > ~tor/.ssh/config
 proxy=http://127.0.0.1:8123
 mkdir ~tor/.w3m
 echo "http_proxy $proxy
