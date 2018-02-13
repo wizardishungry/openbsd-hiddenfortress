@@ -9,14 +9,14 @@
 # bridge   23.23.17.195:443 9284072d42950fe9b9c749491fcf6793940816ef"
 TORRC_APPEND=""
 
-HOSTNAME=$1
-CDN_BASE=$2
 INSTALL_BASE=$CDN_BASE/`machine -a`/
 echo Setting hostname: $HOSTNAME
 hostname -s $HOSTNAME
 echo $HOSTNAME > /etc/myname
 
-if [ $( grep -ic "allowaperture" /etc/sysctl.conf ) -gt 0 ]
+echo "Looking for X11 install"
+which X 2> /dev/null
+if [ $? -eq 0 ]
 then
   echo "Looks like we already setup X11…"
 else
@@ -24,10 +24,15 @@ else
   echo "Setup X11… "
   for f in  /vagrant_data/*.tgz ; do tar xzf $f -C /; done
   ldconfig /usr/local/lib /usr/X11R6/lib $shlib_dirs
-  echo xenodm_flags=YES >> /etc/rc.conf.local
-  rcctl start xenodm
-  sysctl machdep.allowaperture=2 || echo "⚠️ You need to reboot for X11 to work!"
-  echo machdep.allowaperture=2 >> /etc/sysctl.conf
+  echo lol
+  if [ "$X11" == "true" ]
+  then
+    echo xenodm_flags=YES >> /etc/rc.conf.local
+    rcctl start xenodm
+    sysctl machdep.allowaperture=2 || echo "⚠️ You need to reboot for X11 to work!"
+    echo machdep.allowaperture=2 >> /etc/sysctl.conf
+  fi
+  echo ggg
 fi
 
 PKG_SCRIPTS="tor polipo"

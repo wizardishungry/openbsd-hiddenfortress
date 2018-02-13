@@ -7,6 +7,7 @@ hostname = Socket.gethostname
 hostname.sub! /\.local$/, ''
 
 pkg_base = "https://cloudflare.cdn.openbsd.org/pub/OpenBSD/6.2"
+use_x11 = false # disable gui and xenodm, but still install X
 openbsd_ver = pkg_base.match(/\d+\.\d/).to_s.sub '.','' # for x11 tarballs
 
 Vagrant.configure("2") do |config|
@@ -18,7 +19,7 @@ Vagrant.configure("2") do |config|
     rsync__exclude: '.ssh/id_*'
 
   config.vm.provider "virtualbox" do |vb|
-    vb.gui = true
+    vb.gui = use_x11
     vb.name = config.vm.hostname # doesnt work always
     vb.memory = 2048
     vb.linked_clone = true
@@ -37,7 +38,11 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :shell, name: "hiddenfortress" do |s|
     s.path = "bootstrap.sh"
-    s.args = "'#{config.vm.hostname}' '#{pkg_base}'"
+    s.env = {
+      HOSTNAME: config.vm.hostname,
+      CDN_BASE: pkg_base,
+      X11: use_x11.to_s
+    }
   end
 
   # these are specific to my configuration
@@ -52,10 +57,10 @@ Vagrant.configure("2") do |config|
 
   config.trigger.after :provision do
     confirm = nil
-    until ["Y", "y", "N", "n"].include?(confirm)
+    until ["Y", "y", "N", "n"].include?(confirm) or not use_x11
       confirm = ask "Would you like to reboot to enact X11 changes now? (Y/N) "
     end
-    run_remote "reboot" if confirm.upcase == "Y"
+    run_remote "reboot" if use_x11 && confirm.upcase == "Y"
   end
 
 end
